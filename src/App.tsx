@@ -6,11 +6,18 @@ import { WebStorageStateStore } from 'oidc-client-ts'
 const OIDC_SETTINGS_KEY = 'oidc_debug_settings'
 
 // Дефолтные настройки
+const getBaseUrl = () => {
+  const { origin, pathname } = window.location
+  // Убираем trailing слеши и /callback если есть
+  const base = pathname.replace(/\/(callback)?$/, '') || ''
+  return origin + base
+}
+
 const defaultSettings = {
-  authority: import.meta.env.VITE_OIDC_AUTHORITY || 'https://auth.moliedev.xyz/realms/walme',
-  clientId: import.meta.env.VITE_OIDC_CLIENT_ID || 'waitlist-web',
+  authority: import.meta.env.VITE_OIDC_AUTHORITY || 'https://auth.jamcard.io/realms/jamcard',
+  clientId: import.meta.env.VITE_OIDC_CLIENT_ID || 'mobile_app',
   scope: 'openid profile email offline_access',
-  redirectUri: `${window.location.origin}/callback`,
+  redirectUri: `${getBaseUrl()}/callback`,
 }
 
 // Получить сохраненные настройки
