@@ -168,52 +168,52 @@ function TokenPanel({
       <pre style={styles.rawTokenPre}>{token}</pre>
 
       {/* Decoded */}
-      {decoded && (
+      {decoded && payload && (
         <div style={styles.tokenDetails}>
           <div style={styles.tokenFields}>
-            {payload?.sub && (
+            {'sub' in payload && (
               <div style={styles.tokenField}>
                 <span style={styles.fieldName}>sub:</span>
-                <span style={styles.fieldValue}>{payload.sub as string}</span>
+                <span style={styles.fieldValue}>{String(payload.sub)}</span>
               </div>
             )}
-            {payload?.given_name && (
+            {'given_name' in payload && (
               <div style={styles.tokenField}>
                 <span style={styles.fieldName}>first name:</span>
-                <span style={styles.fieldValue}>{payload.given_name as string}</span>
+                <span style={styles.fieldValue}>{String(payload.given_name)}</span>
               </div>
             )}
-            {payload?.family_name && (
+            {'family_name' in payload && (
               <div style={styles.tokenField}>
                 <span style={styles.fieldName}>last name:</span>
-                <span style={styles.fieldValue}>{payload.family_name as string}</span>
+                <span style={styles.fieldValue}>{String(payload.family_name)}</span>
               </div>
             )}
-            {payload?.email && (
+            {'email' in payload && (
               <div style={styles.tokenField}>
                 <span style={styles.fieldName}>email:</span>
-                <span style={styles.fieldValue}>{payload.email as string}</span>
+                <span style={styles.fieldValue}>{String(payload.email)}</span>
               </div>
             )}
-            {payload?.preferred_username && (
+            {'preferred_username' in payload && (
               <div style={styles.tokenField}>
                 <span style={styles.fieldName}>username:</span>
-                <span style={styles.fieldValue}>{payload.preferred_username as string}</span>
+                <span style={styles.fieldValue}>{String(payload.preferred_username)}</span>
               </div>
             )}
-            {payload?.exp && (
+            {'exp' in payload && (
               <div style={styles.tokenField}>
                 <span style={styles.fieldName}>exp:</span>
                 <span style={styles.fieldValue}>
-                  {new Date((payload.exp as number) * 1000).toLocaleString()}
+                  {new Date(Number(payload.exp) * 1000).toLocaleString()}
                 </span>
               </div>
             )}
-            {payload?.iat && (
+            {'iat' in payload && (
               <div style={styles.tokenField}>
                 <span style={styles.fieldName}>iat:</span>
                 <span style={styles.fieldValue}>
-                  {new Date((payload.iat as number) * 1000).toLocaleString()}
+                  {new Date(Number(payload.iat) * 1000).toLocaleString()}
                 </span>
               </div>
             )}
