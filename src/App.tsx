@@ -654,6 +654,7 @@ export default function App() {
     scope: settings.scope,
     automaticSilentRenew: true,
     accessTokenExpiringNotificationTimeInSeconds: 60,
+    includeIdTokenInSilentRenew: true,
     userStore: new WebStorageStateStore({ store: window.localStorage, prefix: 'oidc.' }),
     revokeTokensOnSignout: true,
     onSigninCallback: () => {
