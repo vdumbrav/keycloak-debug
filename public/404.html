@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Keycloak Debug</title>
+    <script>
+      // Redirect to main page with query params preserved
+      var search = window.location.search;
+      var hash = window.location.hash;
+      window.location.replace('/keycloak-debug/' + search + hash);
+    </script>
+  </head>
+  <body></body>
+</html>
