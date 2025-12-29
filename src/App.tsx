@@ -17,7 +17,7 @@ const defaultSettings = {
   authority: import.meta.env.VITE_OIDC_AUTHORITY || 'https://auth.jamcard.io/realms/jamcard',
   clientId: import.meta.env.VITE_OIDC_CLIENT_ID || 'mobile_app',
   scope: 'openid profile email offline_access',
-  redirectUri: `${getBaseUrl()}/callback`,
+  redirectUri: getBaseUrl(),
 }
 
 // Получить сохраненные настройки
